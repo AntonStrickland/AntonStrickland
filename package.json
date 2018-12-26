@@ -1,0 +1,30 @@
+{
+  "name": "antonstrickland",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "npm run build"
+  },
+  "engines": {
+    "node": "10"
+  },
+  "keywords": [
+    "react",
+    "ssr",
+    "server-side-rendering"
+  ],
+  "author": "Anton Strickland",
+  "license": "",
+  "dependencies": {
+    "next": "7.0.2",
+    "next-routes": "^1.4.2",
+    "nodemailer": "^4.7.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.84.0"
+  }
+}
