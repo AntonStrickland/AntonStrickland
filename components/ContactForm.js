@@ -77,7 +77,8 @@ class ContactForm extends Component {
 
       <Form.Field>
         <label>Message</label>
-        <Input
+        <Form.TextArea
+        placeholder="Enter message"
         value={this.state.message}
         onChange={event=>this.setState({message: event.target.value})}
         />
