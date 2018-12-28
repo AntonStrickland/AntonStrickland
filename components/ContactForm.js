@@ -1,42 +1,45 @@
 import React, {Component} from 'react';
 import { Form, Button, Input, Message } from 'semantic-ui-react';
 import { Router } from '../routes';
+import Axios from 'axios';
 
 class ContactForm extends Component {
 
   state = {
     email: '',
     name: '',
+    subject: '',
     message: '',
     errorMessage: '',
     loading: false
   };
 
-  onSubmit = (event) => {
+  onSubmit = async (event) => {
     event.preventDefault();
 
-    fetch('/contact', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: this.state.email,
-          name: this.state.name,
-          message: this.state.message
-        })
-      })
-      .then((response) => response.json())
-      .then((responseJson) => {
-        if (responseJson.success) {
-          this.setState({formSent: true})
-        }
-        else this.setState({formSent: false})
-      })
-      .catch((error) => {
-        console.error(error);
+    try {
+
+      const email = this.state.email;
+      const name = this.state.name;
+      const subject = this.state.subject;
+      const message = this.state.message;
+
+      this.setState({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''});
+
+      const response = await Axios.post('/contact', {
+        email: email,
+        name: name,
+        subject: subject,
+        message: message
       });
+
+    } catch (e) {
+      this.setState({errorMessage: e});
+    }
 
   };
 
@@ -45,7 +48,8 @@ class ContactForm extends Component {
 
     return(
 
-      <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
+      <Form onSubmit={this.onSubmit.bind(this)} method="POST"
+      error={!!this.state.errorMessage}>
 
       <Form.Field>
         <label>E-mail</label>
@@ -60,6 +64,14 @@ class ContactForm extends Component {
         <Input
         value={this.state.name}
         onChange={event=>this.setState({name: event.target.value})}
+        />
+      </Form.Field>
+
+      <Form.Field>
+        <label>Subject</label>
+        <Input
+        value={this.state.subject}
+        onChange={event=>this.setState({subject: event.target.value})}
         />
       </Form.Field>
 
