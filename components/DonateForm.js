@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Form, Button, Input, Message } from 'semantic-ui-react';
+import { Form, Button, Input, Message, Grid } from 'semantic-ui-react';
 import donate from '../ethereum/donate';
 import web3 from '../ethereum/web3';
 import { Router } from '../routes';
@@ -8,14 +8,34 @@ class DonateForm extends Component {
 
   state = {
     value: '',
+    currentBalance: '',
+    totalBalance: '',
+    totalDonations: '',
     errorMessage: '',
-    loading: false
+    isAdmin: false,
+    loading: false,
+    loadingWithdraw: false
   };
+
+  async componentDidMount() {
+
+    const adminAddress = await donate.methods.admin().call();
+    const accounts = await web3.eth.getAccounts();
+    const userAddress = accounts[0];
+
+    const isAdmin = userAddress == adminAddress;
+    this.setState({isAdmin});
+
+    const summary = await donate.methods.getSummary().call();
+    this.setState({
+      currentBalance: web3.utils.fromWei(summary[0], 'ether'),
+      totalBalance: web3.utils.fromWei(summary[1], 'ether'),
+      totalDonations: summary[2]
+    });
+  }
 
   onSubmit = async (event) => {
     event.preventDefault();
-
-    console.log(process.env.DONATE_ADDRESS)
 
     this.setState({loading: true, errorMessage: ''});
 
@@ -35,26 +55,78 @@ class DonateForm extends Component {
 
   };
 
+  onWithdraw = async (event) => {
+
+    event.preventDefault();
+
+    this.setState({loadingWithdraw: true, errorMessage: ''});
+
+    try {
+      const accounts = await web3.eth.getAccounts();
+      await donate.methods.withdraw().send({
+        from: accounts[0],
+      });
+
+      Router.replaceRoute(`/`);
+    } catch (err) {
+      this.setState({errorMessage: err.message});
+    }
+
+    this.setState({loadingWithdraw: false, value: ''});
+
+  }
 
   render() {
 
+    // Only render the withdraw button if user is the admin
+    const isAdmin = this.state.isAdmin;
+    let withdrawButton;
+
+    if (isAdmin) {
+      withdrawButton = <Button floated="right" loading={this.state.loadingWithdraw}
+      onClick={this.onWithdraw} primary>Withdraw</Button>;
+    }
+    else {
+      withdrawButton = <p> </p>
+    }
+
+    // Render the form
     return(
 
-      <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
+      <div>
 
-      <Form.Field>
-        <label>Amount to Donate</label>
-        <Input
-        value={this.state.value}
-        onChange={event=>this.setState({value: event.target.value})}
-        label="ether"
-        labelPosition="right"
-        />
-      </Form.Field>
+      <Grid>
+        <Grid.Row>
+          <Grid.Column width = {10}>
+          <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
 
-      <Button loading={this.state.loading} primary>Donate!</Button>
-      <Message error header="Oops!" content={this.state.errorMessage} />
-      </Form>
+          <Form.Field>
+            <label>Amount to Donate</label>
+            <Input
+            value={this.state.value}
+            onChange={event=>this.setState({value: event.target.value})}
+            label="ether"
+            labelPosition="right"
+            />
+          </Form.Field>
+
+          <Button loading={this.state.loading} primary>Donate</Button>
+          <Message error header="Oops!" content={this.state.errorMessage} />
+          {withdrawButton}
+          </Form>
+
+          </Grid.Column>
+          <Grid.Column width = {6}>
+          <h3>Fun Facts</h3>
+          <p><b>Current Balance: {this.state.currentBalance} ether</b></p>
+          <p><b>Total Balance: {this.state.totalBalance} ether</b></p>
+          <p><b>Total Donations: {this.state.totalDonations}</b></p>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+
+
+      </div>
 
 
     );
