@@ -38,7 +38,7 @@ class ContactForm extends Component {
       });
 
     } catch (e) {
-      this.setState({errorMessage: e});
+      this.setState({errorMessage: e.message});
     }
 
   };
