@@ -19,9 +19,17 @@ app.prepare().then(() => {
     return handle(req, res);
   });
 
-  server.post('/contact', function (req, res) {
+  server.post('/contact', async function (req, res) {
     const message = req.body.email + "\n\n" + req.body.name +"\n\n" + req.body.message;
-    sendEmail(process.env.MAIL_ADDRESS, req.body.subject, message);
+
+    try {
+      await sendEmail(process.env.MAIL_ADDRESS, req.body.subject, message);
+      res.status(204).send();
+    }catch (e) {
+      console.error(e);
+      res.status(500).send();
+    }
+
   });
 
   server.listen(PORT, err => {

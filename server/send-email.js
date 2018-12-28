@@ -17,11 +17,14 @@ module.exports = function sendEmail(to, subject, message) {
         subject,
         html: message,
     };
-    console.log("SENDING MAIL");
-    transport.sendMail(mailOptions, (error) => {
-        if (error) {
-            console.log(error);
-        }
+
+    return new Promise(function(resolve, reject) {
+      transport.sendMail(mailOptions, (error, info) => {
+          if (error) {
+              reject(error);
+          } else {
+            resolve(info);
+          }
+      });
     });
-    console.log("SENT!");
 };
