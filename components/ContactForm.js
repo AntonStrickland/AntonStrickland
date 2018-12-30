@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Form, Button, Input, Message } from 'semantic-ui-react';
-import { Router } from '../routes';
+import { Router } from '../server/routes';
 import Axios from 'axios';
 
 class ContactForm extends Component {

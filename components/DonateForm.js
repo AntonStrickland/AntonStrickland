@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Form, Button, Input, Message, Grid } from 'semantic-ui-react';
 import donate from '../ethereum/donate';
 import web3 from '../ethereum/web3';
-import { Router } from '../routes';
+import { Router } from '../server/routes';
 
 class DonateForm extends Component {
 
