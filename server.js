@@ -1,29 +1,36 @@
-// This file doesn't go through babel or webpack transformation.
-// Make sure the syntax and sources this file requires are compatible with the current node version you are running
-// See https://github.com/zeit/next.js/issues/1245 for discussions on Universal Webpack or universal Babel
-const { createServer } = require('http')
-const { parse } = require('url')
+const express = require('express');
+const bodyparser = require('body-parser');
 const next = require('next')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-app.prepare().then(() => {
-  createServer((req, res) => {
-    // Be sure to pass `true` as the second argument to `url.parse`.
-    // This tells it to parse the query portion of the URL.
-    const parsedUrl = parse(req.url, true)
-    const { pathname, query } = parsedUrl
+const sendEmail = require('./server/send-email');
 
-    if (pathname === '/a') {
-      app.render(req, res, '/b', query)
-    } else if (pathname === '/b') {
-      app.render(req, res, '/a', query)
-    } else {
-      handle(req, res, parsedUrl)
+app.prepare().then(() => {
+  const server = express()
+
+  server.get('*', (req, res) => {
+    return handle(req, res)
+  })
+
+  server.use(bodyparser.json());
+
+  server.post('/contact', async function (req, res) {
+    const message = req.body.email + "\n\n" + req.body.name +"\n\n" + req.body.message;
+
+    try {
+      await sendEmail(process.env.MAIL_ADDRESS, req.body.subject, message);
+      res.status(204).send();
+    }catch (e) {
+      console.error(e);
+      res.status(500).send();
     }
-  }).listen(3000, err => {
+
+  });
+
+  server.listen(3000, (err) => {
     if (err) throw err
     console.log('> Ready on http://localhost:3000')
   })
