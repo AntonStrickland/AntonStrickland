@@ -19,17 +19,19 @@ class DonateForm extends Component {
 
   async componentDidMount() {
 
-    const summary = await donate.methods.getSummary().call();
-
-    const adminAddress = summary[0];
+    const adminAddress = await donate.methods.admin().call();
     const accounts = await web3.eth.getAccounts();
     const userAddress = accounts[0];
 
+    const isAdmin = userAddress == adminAddress;
+    this.setState({isAdmin});
+
+    const summary = await donate.methods.getSummary().call();
+
     this.setState({
-      isAdmin: userAddress == adminAddress,
-      currentBalance: web3.utils.fromWei(summary[1], 'ether'),
-      totalBalance: web3.utils.fromWei(summary[2], 'ether'),
-      totalDonations: summary[3]
+      currentBalance: web3.utils.fromWei(summary[0], 'ether'),
+      totalBalance: web3.utils.fromWei(summary[1], 'ether'),
+      totalDonations: summary[2]
     });
   }
 

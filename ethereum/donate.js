@@ -4,7 +4,7 @@ import Donate from './build/Donate.json';
 
 const instance = new web3.eth.Contract(
   JSON.parse(Donate.interface),
-  '0x4Df0CaCD30ba7E7D49e54A54Df386Ee1D9D40808'
+  '0xC519cFc62B6E2cACB15A49D195f697d7145F1EB3'
 );
 
 export default instance;
