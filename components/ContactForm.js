@@ -24,21 +24,29 @@ class ContactForm extends Component {
       const subject = this.state.subject;
       const message = this.state.message;
 
-      this.setState({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''});
+      if (email == '' || name == '' || subject == '' || message == '')
+      {
+        this.setState({errorMessage: "Please fill in all fields!"});
+      }
+      else {
 
-      const response = await Axios.post('/contact', {
-        email: email,
-        name: name,
-        subject: subject,
-        message: message
-      });
+        this.setState({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''});
+
+        const response = await Axios.post('/contact', {
+          email: email,
+          name: name,
+          subject: subject,
+          message: message
+        });
+
+      }
 
     } catch (e) {
-      this.setState({errorMessage: e.message});
+      this.setState({errorMessage: "Internal error"});
     }
 
   };
@@ -87,7 +95,6 @@ class ContactForm extends Component {
       <Button primary >
       <label>Submit</label>
       </Button>
-
 
       <Message error header="Oops!" content={this.state.errorMessage} />
       </Form>
