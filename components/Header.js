@@ -10,7 +10,7 @@ export default () => {
       <Link route="/"><a className="item">Anton Strickland</a></Link>
 
       <Menu.Menu position="right">
-        <Link route="/resume"><a className="item">Resume</a></Link>
+        <Link route="https://drive.google.com/open?id=1EYVHGFhHxRcXRNtdxAhWBe1RuF1oI0la"><a className="item">Resume</a></Link>
         <Link route="/projects"><a className="item">Projects</a></Link>
         <Link route="/services"><a className="item">Services</a></Link>
         <Link route="/contact"><a className="item">Contact</a></Link>
