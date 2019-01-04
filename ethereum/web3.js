@@ -8,7 +8,7 @@ if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
 } else {
   // We are on the server OR the user is not running MetaMask
   const provider = new Web3.providers.HttpProvider(
-    'https://rinkeby.infura.io/v3/72579e0c736f499695b3620d7ed865e5'
+    'https://mainnet.infura.io/v3/72579e0c736f499695b3620d7ed865e5'
   );
   web3 = new Web3(provider);
 }
