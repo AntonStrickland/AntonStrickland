@@ -47,6 +47,9 @@ class DonateForm extends Component {
         value: web3.utils.toWei(this.state.value, 'ether')
       });
 
+      sendEmail(process.env.MAIL_ADDRESS, 'Donation received!',
+      'Someone just sent a donation to your smart contract!');
+
       Router.replaceRoute(`/`);
     } catch (err) {
       this.setState({errorMessage: err.message});
