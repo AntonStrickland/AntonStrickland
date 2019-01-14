@@ -15,6 +15,7 @@ export default () => {
         <Link route="/services"><a className="item">Services</a></Link>
         <Link route="/contact"><a className="item">Contact</a></Link>
         <Link route="/donate"><a className="item">Donate</a></Link>
+        <Link route="/turtle"><a className="item">TurtlePay</a></Link>
       </Menu.Menu>
     </Menu>
   );

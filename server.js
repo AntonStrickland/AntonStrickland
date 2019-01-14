@@ -1,3 +1,5 @@
+import { Router } from '../server/routes';
+
 const express = require('express');
 const bodyparser = require('body-parser');
 const next = require('next')
@@ -8,6 +10,7 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 
 const sendEmail = require('./server/send-email');
+
 
 app.prepare().then(() => {
   const server = express()
@@ -30,7 +33,8 @@ app.prepare().then(() => {
     }
 
   });
-
+  
+  
   server.listen(PORT, (err) => {
     if (err) throw err
     console.log('> Ready on http://localhost:3000')
