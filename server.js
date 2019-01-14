@@ -1,5 +1,3 @@
-import { Router } from '../server/routes';
-
 const express = require('express');
 const bodyparser = require('body-parser');
 const next = require('next')
@@ -33,7 +31,6 @@ app.prepare().then(() => {
     }
 
   });
-  
   
   server.listen(PORT, (err) => {
     if (err) throw err
