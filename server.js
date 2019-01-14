@@ -1,4 +1,4 @@
-import { Router } from '/server/routes';
+//import { Router } from '/server/routes';
 
 const express = require('express');
 const bodyparser = require('body-parser');
@@ -39,7 +39,7 @@ app.prepare().then(() => {
 	console.log("thank you!")
 	
 	try {
-      Router.replaceRoute(`/thank-you`);
+      //Router.replaceRoute(`/thank-you`);
       res.status(204).send();
     }catch (e) {
       console.error(e);
