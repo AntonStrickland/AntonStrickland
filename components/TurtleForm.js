@@ -34,17 +34,12 @@ class TurtleForm extends Component {
         const response = await Axios.post('https://api.turtlepay.io/v1/new', {
           address: 'TRTLuyYpZTiCrii4iW29EvWbVesV8hasy9kWFP5pqoZANNv5x14NvuYexuTASCxivo3EbfzKskf14fLJNnAF6qsXRuooGoKg2DW',
           amount: (amount * 100),
-          callback: 'https://antonstrickland.com/turtle',
+          callback: 'https://antonstrickland.com/thank-you',
           confirmations: confirmations
         });
 		
 		console.log(response)
         this.setState({ hasDonated: true, amount: response.data.amount, address: response.data.sendToAddress });
-		
-		console.log(response.data.sendToAddress)
-		console.log(response.data.amount)
-
-		//Router.replaceRoute(`/thank-you`);
 		
       }
 
@@ -63,7 +58,7 @@ class TurtleForm extends Component {
     let content;
 
     if (hasDonated) {
-		content = <div><p>Thank you for donating!</p><p>Please send {this.state.amount} TRTL to {this.state.address} within 30 minutes.</p></div>
+		content = <div><p>Please send {this.state.amount} TRTL to {this.state.address} within 30 minutes.</p></div>
     }
     else {
       content = <div> <p>You can send me some TRTL using the form below:</p>

@@ -1,3 +1,5 @@
+import { Router } from '/server/routes';
+
 const express = require('express');
 const bodyparser = require('body-parser');
 const next = require('next')
@@ -24,6 +26,20 @@ app.prepare().then(() => {
 
     try {
       await sendEmail(process.env.MAIL_ADDRESS, req.body.subject, message);
+      res.status(204).send();
+    }catch (e) {
+      console.error(e);
+      res.status(500).send();
+    }
+
+  });
+  
+  server.post('/thank-you', async function (req, res) {
+
+	console.log("thank you!")
+	
+	try {
+      Router.replaceRoute(`/thank-you`);
       res.status(204).send();
     }catch (e) {
       console.error(e);
