@@ -44,7 +44,7 @@ class TurtleForm extends Component {
       }
 
     } catch (e) {
-      this.setState({errorMessage: "Internal error"});
+      this.setState({errorMessage: e.message});
     }
 
   };

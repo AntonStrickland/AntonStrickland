@@ -3,21 +3,21 @@ import React, { Component } from 'react'
 import { Table } from 'semantic-ui-react'
 
 const tableData = [
-  { title: 'Detective Butler', type: 'Video game', duties: 'Lead programmer', skills: 'C++, SDL, OpenGL',  employer: 'Goldbar Games', year: '2013' },
-  { title: 'Nekouzan: Maze Miner', type: 'Video game', duties: 'Lead programmer',  skills: 'Unity3D, C#',  employer: 'Goldbar Games', year: '2017' },
-  { title: 'Cruise Ship Cleanup', type: 'Video game', duties: 'Lead programmer',  skills: 'Unity3D, C#',  employer: 'Goldbar Games', year: '2017' },
-  { title: 'Snowball Saves Christmas', type: 'Video game', duties: 'Lead programmer',  skills: 'Unity3D, C#',  employer: 'Goldbar Games', year: '2017' },
-  { title: 'Snowball Saves Summer', type: 'Video game', duties: 'Lead programmer', skills: 'Unity3D, C#',   employer: 'Goldbar Games', year: '2018' },
-  { title: 'Witch Doctor Kaneko', type: 'Video game', duties: 'Lead programmer', skills: 'Unity3D, C#',   employer: 'Goldbar Games', year: '2019' },
-  { title: 'antonstrickland.com', type: 'Website', duties: 'Lead programmer', skills: 'NodeJS, Heroku', employer: 'Anton Strickland', year: '2019' },
-  { title: 'goldbargames.com', type: 'Website', duties: 'Lead programmer', skills: 'Ruby, PHP', employer: 'Goldbar Games', year: '2015' },
-  { title: 'store.goldbargames.com', type: 'Website', duties: 'Lead programmer', skills: 'Shopify', employer: 'Goldbar Games', year: '2018' },
-  { title: 'Umbra', type: 'Video game', duties: 'GUI programming', skills: 'Python',  employer: 'Black Witch Project', year: '2016' },
-  { title: 'Voyage Without Purpose', type: 'Video game', duties: 'Lead programmer',  skills: 'Unity3D, C#',  employer: 'Black Witch Project', year: '2018' },
-  { title: 'Driftwood', type: 'Video game', duties: 'GUI programming', skills: 'Python', employer: 'Wakagana', year: '2015' },
-  { title: 'Pitch Black Serenade', type: 'Video game', duties: 'Minigame programming',  skills: 'Python', employer: '97 Circle', year: '2018' },
-  { title: 'Indecent Desires', type: 'Video game', duties: 'GUI programming',  skills: 'Python', employer: 'Vilelab', year: '2018' },
-  { title: 'Gold Mine Sweeper', type: 'Video game', duties: 'Lead programmer',  skills: 'Unity3D, C#', employer: 'Street Corner Cat Studio', year: '2018' },
+  { title: 'Detective Butler', type: 'Video game', duties: 'Lead programmer', skills: 'C++, SDL, OpenGL',  employer: 'Goldbar Games', year: '2013', link: 'http://store.steampowered.com/app/612620/Detective_Butler_Maiden_Voyage_Murder/' },
+  { title: 'Nekouzan: Maze Miner', type: 'Video game', duties: 'Lead programmer',  skills: 'Unity3D, C#',  employer: 'Goldbar Games', year: '2017', link: 'https://play.google.com/store/apps/details?id=com.GoldbarGames.MazeMiner&hl=en_US' },
+  { title: 'Cruise Ship Cleanup', type: 'Video game', duties: 'Lead programmer',  skills: 'Unity3D, C#',  employer: 'Goldbar Games', year: '2017', link: 'https://play.google.com/store/apps/details?id=com.GoldbarGames.CruiseShipCleanup&hl=en_US' },
+  { title: 'Snowball Saves Christmas', type: 'Video game', duties: 'Lead programmer',  skills: 'Unity3D, C#',  employer: 'Goldbar Games', year: '2017', link: 'https://play.google.com/store/apps/details?id=com.GoldbarGames.SnowballSavesChristmas&hl=en_US' },
+  { title: 'Snowball Saves Summer', type: 'Video game', duties: 'Lead programmer', skills: 'Unity3D, C#',   employer: 'Goldbar Games', year: '2018', link: 'https://store.steampowered.com/app/839130/Snowball_Saves_Summer/' },
+  { title: 'Witch Doctor Kaneko', type: 'Video game', duties: 'Lead programmer', skills: 'Unity3D, C#',   employer: 'Goldbar Games', year: '2019', link: 'https://www.goldbargames.com/witch-doctor-kaneko/' },
+  { title: 'antonstrickland.com', type: 'Website', duties: 'Lead programmer', skills: 'NodeJS, Heroku', employer: 'Anton Strickland', year: '2019', link: 'https://www.antonstrickland.com/' },
+  { title: 'goldbargames.com', type: 'Website', duties: 'Lead programmer', skills: 'Ruby, PHP', employer: 'Goldbar Games', year: '2015', link: 'https://www.goldbargames.com/' },
+  { title: 'store.goldbargames.com', type: 'Website', duties: 'Lead programmer', skills: 'Shopify', employer: 'Goldbar Games', year: '2018', link: 'https://store.goldbargames.com/' },
+  { title: 'Umbra: Phase 2', type: 'Video game', duties: 'GUI programming', skills: 'Python',  employer: 'Black Witch Project', year: '2016', link: 'https://lemmasoft.renai.us/forums/viewtopic.php?t=33761' },
+  { title: 'Voyage Without Purpose', type: 'Video game', duties: 'Lead programmer',  skills: 'Unity3D, C#',  employer: 'Black Witch Project', year: '2018', link: '#' },
+  { title: 'Driftwood', type: 'Video game', duties: 'GUI programming', skills: 'Python', employer: 'Wakagana', year: '2015', link: 'https://store.steampowered.com/app/510750/Driftwood_The_Visual_Novel/' },
+  { title: 'Pitch Black Serenade', type: 'Video game', duties: 'Minigame programming',  skills: 'Python', employer: '97 Circle', year: '2018', link: 'https://97circle.itch.io/pitch-black-serenade' },
+  { title: 'Indecent Desires', type: 'Video game', duties: 'GUI programming',  skills: 'Python', employer: 'Vilelab', year: '2018', link: 'https://www.patreon.com/vilelab/overview' },
+  { title: 'Gold Mine Sweeper', type: 'Video game', duties: 'Lead programmer',  skills: 'Unity3D, C#', employer: 'Street Corner Cat Studio', year: '2018', link: 'https://www.freelancer.com/projects/mobile-phone/build-minesweeper-like-game-Unity/' },
 ]
 
 export default class ProjectTable extends Component {
@@ -109,9 +109,9 @@ export default class ProjectTable extends Component {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {_.map(data, ({ type, duties, skills, employer, year, title }) => (
+          {_.map(data, ({ type, duties, skills, employer, year, link, title }) => (
             <Table.Row key={title}>
-              <Table.Cell>{title}</Table.Cell>
+              <Table.Cell><a href={link}>{title}</a></Table.Cell>
               <Table.Cell>{type}</Table.Cell>
               <Table.Cell>{duties}</Table.Cell>
               <Table.Cell>{skills}</Table.Cell>
