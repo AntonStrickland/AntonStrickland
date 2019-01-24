@@ -7,7 +7,7 @@ export default () => {
   return (
 
     <div>
-
+    <hr/><p>Copyright Anton Strickland</p>
     </div>
   );
 }
