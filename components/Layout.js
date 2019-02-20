@@ -11,6 +11,7 @@ export default (props) => {
     <Container>
       <Head>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css" />
+        <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css" />
       </Head>
       <Header />
       {props.children}
