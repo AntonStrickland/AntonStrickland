@@ -9,7 +9,7 @@ export default () => (
     <div>
       <h1>Services</h1>
 
-      <h2>Current Status: <a href="/contact">Looking for Work!</a></h2>
+      <h2>Current Status: CLOSED</h2>
 
       <p>When being commissioned for freelance work, rates will be based on the type and length of each project.</p>
 
