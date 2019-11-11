@@ -10,7 +10,7 @@ export default () => {
       <Link route="/"><a className="item">Anton Strickland</a></Link>
 
       <Menu.Menu position="right">
-        <Link route="/resume"><a className="item">Resume</a></Link>
+        <a href="https://antonstrickland.com/resume" className="item">Resume</a>
         <Link route="/projects"><a className="item">Projects</a></Link>
         <Link route="/services"><a className="item">Services</a></Link>
         <Link route="/contact"><a className="item">Contact</a></Link>
