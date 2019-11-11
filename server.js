@@ -14,12 +14,19 @@ const sendEmail = require('./server/send-email');
 
 app.prepare().then(() => {
   const server = express()
+  
+  server.get('/resume', (req, res) => {
+    const targetUrl = 'https://drive.google.com/file/d/1HqLJcJYnTDMeKrKWCRPJqANsoAcfN_Y9/view?usp=sharing';
+    res.redirect(targetUrl);
+    return handle(req, res)
+  })
 
   server.get('*', (req, res) => {
     return handle(req, res)
   })
-
+  
   server.use(bodyparser.json());
+  
 
   server.post('/contact', async function (req, res) {
     const message = req.body.email + "\n\n" + req.body.name +"\n\n" + req.body.message;
