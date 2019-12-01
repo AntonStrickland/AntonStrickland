@@ -155,6 +155,13 @@ export default () => (
             <Card.Meta>Anton Strickland</Card.Meta>
             <Card.Description>This website you are currently on was made using Javascript technologies including Node, React, Next, Express, and Web3. The CSS is from Semantic-UI. Currently hosted using Heroku.</Card.Description>
           </Card.Content>
+          <Card.Content extra>
+            <div className='ui two buttons'>
+              <Button basic color='red' href="https://github.com/AntonStrickland/AntonStrickland">
+                Source Code
+              </Button>
+            </div>
+          </Card.Content>
         </Card>
 
    </Card.Group>
