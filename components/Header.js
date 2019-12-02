@@ -13,6 +13,7 @@ export default () => {
         <a href="https://antonstrickland.com/resume" className="item">Resume</a>
         <Link route="/projects"><a className="item">Projects</a></Link>
         <Link route="/services"><a className="item">Services</a></Link>
+        <Link route="/tutorials"><a className="item">Tutorials</a></Link>
         <Link route="/contact"><a className="item">Contact</a></Link>
         <Link route="/donate"><a className="item">Donate</a></Link>
       </Menu.Menu>

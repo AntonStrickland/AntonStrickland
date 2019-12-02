@@ -9,7 +9,7 @@ export default () => (
     <div>
       <h1>Services</h1>
 
-      <h2>Current Status: CLOSED</h2>
+      <h2>Current Status: OPEN</h2>
 
       <p>When being commissioned for freelance work, rates will be based on the type and length of each project.</p>
 
@@ -59,9 +59,9 @@ export default () => (
 
       <Card
         href='#'
-        header='Data Science'
+        header='Tutoring'
         meta=''
-        description='Data collection and quantitative analysis.'
+        description='One on one tutoring available via Skype or Discord.'
       />
 
       <Card
