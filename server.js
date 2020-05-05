@@ -16,7 +16,7 @@ app.prepare().then(() => {
   const server = express()
   
   server.get('/resume', (req, res) => {
-    const targetUrl = 'https://drive.google.com/file/d/1HqLJcJYnTDMeKrKWCRPJqANsoAcfN_Y9/view?usp=sharing';
+    const targetUrl = 'https://drive.google.com/file/d/1Hq50UyL8b_Q_oa_OYA3V4bQLHKThITLK/view?usp=sharing';
     res.redirect(targetUrl);
     return handle(req, res)
   })
