@@ -150,6 +150,66 @@ export default () => (
            </div>
          </Card.Content>
        </Card>
+	   
+       <Card>
+         <Card.Content>
+           <Image
+             floated='right'
+             size='small'
+             src='static/images/projects/gg.jpg'
+           />
+           <Card.Header>New Website</Card.Header>
+           <Card.Meta>Goldbar Games</Card.Meta>
+           <Card.Description> New website for Goldbar Games built with Python Django, includes a blog, user registration, and payment processing with Stripe. Hosted on Heroku.</Card.Description>
+         </Card.Content>
+         <Card.Content extra>
+           <div className='ui two buttons'>
+             <Button basic color='green' href="https://goldbargamestest.herokuapp.com">
+               View Website
+             </Button>
+           </div>
+         </Card.Content>
+       </Card>
+	   
+       <Card>
+         <Card.Content>
+           <Image
+             floated='right'
+             size='small'
+             src='static/images/projects/madco.jpg'
+           />
+           <Card.Header>Vendor Bids Portal</Card.Header>
+           <Card.Meta>Madison County, Illinois</Card.Meta>
+           <Card.Description> A C# web application that lets vendors do business with the county.</Card.Description>
+         </Card.Content>
+         <Card.Content extra>
+           <div className='ui two buttons'>
+             <Button basic color='green' href="https://apps.co.madison.il.us/adminservices/vendors/">
+               View Website
+             </Button>
+           </div>
+         </Card.Content>
+       </Card>
+	   
+       <Card>
+         <Card.Content>
+           <Image
+             floated='right'
+             size='small'
+             src='static/images/projects/madco.jpg'
+           />
+           <Card.Header>Vote By Mail</Card.Header>
+           <Card.Meta>Madison County, Illinois</Card.Meta>
+           <Card.Description> A C# web application that lets voters register to vote by mail.</Card.Description>
+         </Card.Content>
+         <Card.Content extra>
+           <div className='ui two buttons'>
+             <Button basic color='green' href="https://apps.co.madison.il.us/CountyClerk/Elections/VoteByMail/">
+               View Website
+             </Button>
+           </div>
+         </Card.Content>
+       </Card>
 
 
         <Card>
