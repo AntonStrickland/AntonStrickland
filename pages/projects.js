@@ -94,7 +94,7 @@ export default () => (
            <Card.Header>Goldbar Games Website</Card.Header>
            <Card.Meta>Goldbar Games</Card.Meta>
            <Card.Description>
-            Official website for Goldbar Games. Hosted on GitHub Pages using Ruby and Jekyll. Previously maintained a server that used PHP and MySQL (LAMP).
+            Official website for Goldbar Games. Most recent version (2020) built with Python, Django, AWS, hosted on Heroku. Includes user accounts, comment system, payment processing, and much more. The previous version (2014-2019) was hosted on GitHub Pages and used Ruby and Jekyll. Also at one point maintained a server that used PHP and MySQL (LAMP).
           </Card.Description>
          </Card.Content>
          <Card.Content extra>
