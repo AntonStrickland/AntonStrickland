@@ -150,6 +150,29 @@ export default () => (
            </div>
          </Card.Content>
        </Card>
+	   
+       <Card>
+         <Card.Content>
+           <Image
+             floated='right'
+             size='small'
+             src='static/images/projects/nftwitch.jpg'
+           />
+           <Card.Header>NFTwitch</Card.Header>
+           <Card.Meta>Chainlink Hackathon Spring 2021</Card.Meta>
+           <Card.Description>Decentralized app on the Ethereum blockchain that allows Twitch streamers to mint NFTs (ERC-721) as they grow their follower count. Data is accessed via the Twitch API using Chainlink and smart contracts written in Solidity. External adapter is hosted on AWS and the NFT metadata is dynamically uploaded to IPFS using the Pinata API.</Card.Description>
+         </Card.Content>
+         <Card.Content extra>
+           <div className='ui two buttons'>
+             <Button basic color='green' href="https://nftwitch.link">
+               View Website
+             </Button>
+             <Button basic color='red' href="https://github.com/AntonStrickland/nftwitch">
+               Source Code
+             </Button>
+           </div>
+         </Card.Content>
+       </Card>
 	  
 	   
        <Card>
@@ -207,6 +230,8 @@ export default () => (
             </div>
           </Card.Content>
         </Card>
+		
+
 
    </Card.Group>
 
